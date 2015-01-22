@@ -20,8 +20,8 @@ class ToDoListController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
-        self.tableView.reloadData()
-
+        
+        ToDoListManager.sharedInstance.sendGetApi(self, success: reload)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,8 +54,12 @@ class ToDoListController: UITableViewController {
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
-        }
+    }
 //    }
+    
+    func reload() {
+        self.tableView.reloadData()
+    }
 
 }
 

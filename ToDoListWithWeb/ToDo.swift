@@ -12,9 +12,9 @@ class ToDo {
     var _todo:String
     var _id:Int
 
-    init (todo:String, todoId:Int) {
-        _todo = todo
-        _id = todoId
+    init (text:String, tid:Int) {
+        _todo = text
+        _id = tid
     }
     
     deinit {
